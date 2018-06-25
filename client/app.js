@@ -1,4 +1,4 @@
-//app.js
+//app.js test
 var qcloud = require('./vendor/wafer2-client-sdk/index')
 var config = require('./config')
 
