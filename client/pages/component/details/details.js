@@ -1,4 +1,8 @@
 // page/component/details/details.js
+var qcloud = require('../../../vendor/wafer2-client-sdk/index')
+var config = require('../../../config')
+var util = require('../../../utils/util.js')
+
 Page({
   data:{
     goods: {
@@ -49,6 +53,31 @@ Page({
       }, 200)
     }, 300)
 
+  },
+
+  faqiPindan() {
+    const self = this;
+    const num = this.data.num;
+    let total = this.data.totalNum;
+
+    util.showBusy('请求中...')
+    var that = this
+    qcloud.request({
+      url: `${config.service.host}/weapp/pintuan`,
+      login: false,
+      success(result) {
+        util.showSuccess('请求成功完成')
+        that.setData({
+          requestResult: JSON.stringify(result.data)
+        })
+        console.log('response data', JSON.stringify(result.data));
+        
+      },
+      fail(error) {
+        util.showModel('请求失败', error);
+        console.log('request fail', error);
+      }
+    })
   },
 
   bindTap(e) {
