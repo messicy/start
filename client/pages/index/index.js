@@ -131,9 +131,9 @@ Page({
     },
 
     // 切换信道的按钮
-    switchChange: function (e) {
+    switchTunnel: function (e) {
         var checked = e.detail.value
-
+        
         if (checked) {
             this.openTunnel()
         } else {
