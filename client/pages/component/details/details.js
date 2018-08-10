@@ -2,6 +2,7 @@
 var qcloud = require('../../../vendor/wafer2-client-sdk/index')
 var config = require('../../../config')
 var util = require('../../../utils/util.js')
+var tunnelUtil = require('../../../utils/tunnelUtil.js')
 
 Page({
   data:{
@@ -21,6 +22,22 @@ Page({
     curIndex: 0,
     show: false,
     scaleCart: false
+  },
+
+  onLoad: function (options) {
+    var newgoods = {
+      id: 1,
+      image: options.image,
+      title: options.id,
+      price: options.price,
+      stock: '有货',
+      detail: '这里是梨花带雨详情。',
+      parameter: '125g/个',
+      service: '不支持退货'
+    }
+    this.setData({
+      goods: newgoods
+    })
   },
 
   addCount() {
@@ -60,24 +77,25 @@ Page({
     const num = this.data.num;
     let total = this.data.totalNum;
 
-    util.showBusy('请求中...')
-    var that = this
-    qcloud.request({
-      url: `${config.service.host}/weapp/pintuan`,
-      login: false,
-      success(result) {
-        util.showSuccess('请求成功完成')
-        that.setData({
-          requestResult: JSON.stringify(result.data)
-        })
-        console.log('response data', JSON.stringify(result.data));
+    tunnelUtil.sendMessage()    
+    // util.showBusy('请求中...')
+    // var that = this
+    // qcloud.request({
+    //   url: `${config.service.host}/weapp/pintuan`,
+    //   login: false,
+    //   success(result) {
+    //     util.showSuccess('请求成功完成')
+    //     that.setData({
+    //       requestResult: JSON.stringify(result.data)
+    //     })
+    //     console.log('response data', JSON.stringify(result.data));
         
-      },
-      fail(error) {
-        util.showModel('请求失败', error);
-        console.log('request fail', error);
-      }
-    })
+    //   },
+    //   fail(error) {
+    //     util.showModel('请求失败', error);
+    //     console.log('request fail', error);
+    //   }
+    // })
   },
 
   bindTap(e) {

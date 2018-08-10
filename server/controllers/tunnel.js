@@ -79,7 +79,7 @@ function onMessage (tunnelId, type, content) {
         case 'speak':
             if (tunnelId in userMap) {
                 $broadcast('speak', {
-                    'who': userMap[tunnelId],
+                    'who': userMap[tunnelId]["nickName"],
                     'word': content.word
                 })
             } else {

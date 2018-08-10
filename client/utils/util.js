@@ -35,7 +35,13 @@ var showModel = (title, content) => {
     wx.showModal({
         title,
         content: JSON.stringify(content),
-        showCancel: false
+        showCancel: false,
+        confirmText: "加入",
+      complete() {
+        wx.switchTab({
+          url: '/page/component/user/user'
+        })
+      }
     })
 }
 

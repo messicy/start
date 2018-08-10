@@ -1,6 +1,5 @@
 {
   "pages": [
-        "pages/index/index",
         
     "pages/component/index",
     "pages/component/category/category",
@@ -11,7 +10,10 @@
     "pages/component/details/details",
     "pages/component/list/list",
     "pages/component/search/search",
+        "pages/index/index",
+        
         "pages/addCgi/addCgi"
+        
   ],
   "window": {
     "navigationBarTextStyle": "#ffffff",

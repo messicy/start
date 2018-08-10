@@ -1,6 +1,7 @@
 //app.js test
 var qcloud = require('./vendor/wafer2-client-sdk/index')
 var config = require('./config')
+var tunnelUtils = require('./utils/tunnelUtil.js')
 
 App({
     onLaunch: function () {
@@ -37,6 +38,9 @@ App({
             }
           }
         })
+
+        //连接信道
+      tunnelUtils.switchTunnel();
   },
   globalData: {
     userInfo: null
