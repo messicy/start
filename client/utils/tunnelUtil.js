@@ -9,7 +9,7 @@ var switchTunnel = () => {
 var tunnel
 
 var openTunnel = () => {
-  util.showBusy('信道连接中...')
+  util.showBusy('数据更新中...')
   // 创建信道，需要给定后台服务地址
   tunnel = new qcloud.Tunnel(config.service.tunnelUrl)
 
@@ -20,7 +20,7 @@ var openTunnel = () => {
   })
 
   tunnel.on('close', () => {
-    util.showSuccess('信道已断开')
+    util.showSuccess('网络已断开')
     console.log('WebSocket 信道已断开')
   })
 
