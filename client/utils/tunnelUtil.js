@@ -41,7 +41,7 @@ var openTunnel = () => {
 
   // 监听自定义消息（服务器进行推送）
   tunnel.on('speak', speak => {
-    showPush('拼单消息', speak["who"] + speak["word"])
+    showPush('拼单消息', speak["who"] + speak["word"], speak["good"])
     console.log('收到说话消息：', speak)
   })
 
@@ -53,18 +53,19 @@ var openTunnel = () => {
 /**
  * 使用信道发送消息
  */
-var sendMessage = () => {
+var sendMessage = (goodId) => {
   // 使用 tunnel.isActive() 来检测当前信道是否处于可用状态
   if (tunnel && tunnel.isActive()) {
     // 使用信道给服务器推送「speak」消息
     tunnel.emit('speak', {
       'word': '发起了拼单',
+      'good': goodId
     });
   }
 }
 
 //显示分发消息
-var showPush = (title, content) => {
+var showPush = (title, content, goodId) => {
   wx.hideToast();
 
   wx.showModal({
@@ -74,7 +75,7 @@ var showPush = (title, content) => {
     confirmText: "加入",
     complete() {
       wx.navigateTo({
-        url: '../orders/orders'
+        url: '../orders/orders?id='+goodId
       })
     }
   })

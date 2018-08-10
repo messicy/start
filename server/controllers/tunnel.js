@@ -80,7 +80,8 @@ function onMessage (tunnelId, type, content) {
             if (tunnelId in userMap) {
                 $broadcast('speak', {
                     'who': userMap[tunnelId]["nickName"],
-                    'word': content.word
+                    'word': content.word,
+                    "good": content.good
                 })
             } else {
                 $close(tunnelId)
