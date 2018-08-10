@@ -43,6 +43,46 @@ App({
       tunnelUtils.switchTunnel();
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    goods: [{
+      id: 0,
+      image: '/image/goods1.png',
+      title: '新鲜梨花带雨',
+      price: 0.01,
+      stock: '有货',
+      detail: '这里是梨花带雨详情。',
+      parameter: '125g/个',
+      service: '不支持退货'
+    },
+    {
+      id: 1,
+      image: '/image/s4.png',
+      title: '瓜子 100g',
+      price: 0.02,
+      stock: '有货',
+      detail: '这里是瓜子详情。',
+      parameter: '125g/个',
+      service: '不支持退货'
+    },
+    {
+      id: 2,
+      image: '/image/s5.png',
+      title: '芹菜 半斤',
+      price: 0.03,
+      stock: '有货',
+      detail: '这里是芹菜详情。',
+      parameter: '125g/个',
+      service: '不支持退货'
+    },
+    {
+      id: 3,
+      image: '/image/s6.png',
+      title: '粟米 一斤',
+      price: 0.04,
+      stock: '有货',
+      detail: '这里是粟米详情。',
+      parameter: '125g/个',
+      service: '不支持退货'
+    }]
     }
 })

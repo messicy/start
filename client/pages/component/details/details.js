@@ -25,16 +25,8 @@ Page({
   },
 
   onLoad: function (options) {
-    var newgoods = {
-      id: 1,
-      image: options.image,
-      title: options.id,
-      price: options.price,
-      stock: '有货',
-      detail: '这里是梨花带雨详情。',
-      parameter: '125g/个',
-      service: '不支持退货'
-    }
+    console.log("asdfawe " + options.id)
+    var newgoods = getApp().globalData.goods[options.id]
     this.setData({
       goods: newgoods
     })
