@@ -40,7 +40,7 @@ App({
         })
 
         //连接信道
-      tunnelUtils.switchTunnel();
+      // tunnelUtils.switchTunnel();
   },
   globalData: {
     userInfo: null,

@@ -201,7 +201,7 @@ Page({
     onReady(){
         var self = this;
         wx.request({
-            url:'data/cate-detail.txt',
+            // url:'data/cate-detail.txt',
             success(res){
                 self.setData({
                     detail : res.data

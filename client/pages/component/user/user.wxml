@@ -24,10 +24,10 @@
                 <view class="">{{item.count}}</view>
                 <text class="orders-status">{{item.status}}</text>
             </view>
-            <view class="orders-footer">
+            <!-- <view class="orders-footer">
                 <text>实付：￥{{item.money}}</text>
                 <button size="mini" class="orders-btn" bindtap="payOrders">付款</button>
-            </view>
+            </view> -->
         </view>
     </view>
 </view>

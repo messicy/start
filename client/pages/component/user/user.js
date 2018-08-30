@@ -1,4 +1,6 @@
 // page/component/new-pages/user/user.js
+var config = require('../../../config')
+
 Page({
   data:{
     thumb:'',
@@ -32,10 +34,10 @@ Page({
      * 发起请求获取订单列表信息
      */
     wx.request({
-      url: 'http://www.gdfengshuo.com/api/wx/orders.txt',
+      url: `${config.service.host}/weapp/pintuan`,
       success(res){
         self.setData({
-          orders: res.data
+          // orders: res.data
         })
       }
     })
