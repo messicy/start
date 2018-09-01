@@ -40,4 +40,7 @@ router.get('/cart/reduce', controllers.cart.reduce)
 router.get('/cart/del', controllers.cart.del)
 router.get('/cart/load', controllers.cart.load)
 
+router.get('/address/load', controllers.address.load)
+router.get('/address/update', controllers.address.update)
+
 module.exports = router
