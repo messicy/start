@@ -37,7 +37,7 @@
     <view class="newest">
         <view class="newest-title"><text>最近新品</text></view>
         <view class="newest-box">
-            <view class="newest-list" wx:for="{{goods}}" wx:for-item="good" wx:for-index="idx">
+            <view class="newest-list" wx:for="{{goods}}" wx:for-item="good" wx:for-index="idx" wx:key="key">
                 <navigator url="details/details?id={{idx}}">
                     <image src="{{good.image}}"></image>
                     <view class="newest-text"><text>{{good.title}}</text></view>

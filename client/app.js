@@ -52,7 +52,10 @@ App({
       stock: '有货',
       detail: '这里是梨花带雨详情。',
       parameter: '125g/个',
-      service: '不支持退货'
+      service: '不支持退货',
+      category: 1,
+      activity: 1,
+      isnew: true
     },
     {
       id: 1,
@@ -62,7 +65,10 @@ App({
       stock: '有货',
       detail: '这里是瓜子详情。',
       parameter: '125g/个',
-      service: '不支持退货'
+      service: '不支持退货',
+      category: 2,
+      activity: 2,
+      isnew: true
     },
     {
       id: 2,
@@ -72,7 +78,10 @@ App({
       stock: '有货',
       detail: '这里是芹菜详情。',
       parameter: '125g/个',
-      service: '不支持退货'
+      service: '不支持退货',
+      category: 3,
+      activity: 3,
+      isnew: true
     },
     {
       id: 3,
@@ -82,7 +91,49 @@ App({
       stock: '有货',
       detail: '这里是粟米详情。',
       parameter: '125g/个',
-      service: '不支持退货'
-    }]
+      service: '不支持退货',
+      category: 4,
+      activity: 1,
+      isnew: true
+      },
+      {
+        id: 4,
+        image: '/image/s6.png',
+        title: '粟米2 一斤',
+        price: 0.04,
+        stock: '有货',
+        detail: '这里是粟米详情。',
+        parameter: '125g/个',
+        service: '不支持退货',
+        category: 4,
+        activity: 2,
+        isnew: true
+      },
+      {
+        id: 5,
+        image: '/image/s6.png',
+        title: '粟米3 一斤',
+        price: 0.04,
+        stock: '有货',
+        detail: '这里是粟米详情。',
+        parameter: '125g/个',
+        service: '不支持退货',
+        category: 4,
+        activity: 3,
+        isnew: false
+      },
+      {
+        id: 6,
+        image: '/image/s6.png',
+        title: '粟米4 一斤',
+        price: 0.04,
+        stock: '有货',
+        detail: '这里是粟米详情。',
+        parameter: '125g/个',
+        service: '不支持退货',
+        category: 4,
+        activity: 1,
+        isnew: false
+      }]
     }
 })
