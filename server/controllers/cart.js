@@ -13,11 +13,11 @@ module.exports = {
         id: id,
         num: num
       }
-      await mysql("cart").insert(good)
+      res = await mysql("cart").insert(good)
     }
     else
     {
-      await mysql("cart").update({ num: Number(res["num"]) + Number(num) }).where({ id })
+      res = await mysql("cart").update({ num: Number(res["num"]) + Number(num) }).where({ id })
     }
 
     ctx.state.data = {
@@ -26,14 +26,32 @@ module.exports = {
   },
 
   reduce: async ctx => {
+    var id = ctx.request.query["id"];
+
+    //search
+    await mysql("cart").where({ id }).first()
+    var res = await mysql("cart").update({ num: Number(res["num"]) - 1 }).where({ id })
+
     ctx.state.data = {
-      msg: 'PinTuan chenggong!'
+      msg: res
     }
   },
 
   del: async ctx => {
+    var id = ctx.request.query["id"];
+    var res = await mysql("cart").del().where({ id })
+    
     ctx.state.data = {
-      msg: 'PinTuan chenggong!'
+      msg: res
     }
-  }
+  },
+
+  load: async ctx => {
+    //search
+    var res = await mysql("cart")
+    
+    ctx.state.data = {
+      msg: res
+    }
+  },
 }

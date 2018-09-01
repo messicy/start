@@ -1,4 +1,8 @@
 // page/component/new-pages/cart/cart.js
+var qcloud = require('../../../vendor/wafer2-client-sdk/index')
+var config = require('../../../config')
+var util = require('../../../utils/util.js')
+
 Page({
   data: {
     carts:[],               // 购物车列表
@@ -9,15 +13,44 @@ Page({
         name:"hello"
     }
   },
+
   onShow() {
-    this.setData({
-      hasList: true,
-      carts:[
-        {id:1,title:'新鲜芹菜 半斤',image:'/image/s5.png',num:4,price:0.01,selected:true},
-        {id:2,title:'素米 500g',image:'/image/s6.png',num:1,price:0.03,selected:true}
-      ]
+    var that = this;
+    qcloud.request({
+      url: `${config.service.host}/weapp/cart/load`,
+      login: false,
+      success(result) {
+        console.log('response data', JSON.stringify(result.data));
+        var goods = result.data["data"]["msg"];
+        var cartGoods = [];
+        for(var i = 0; i < goods.length; i++)
+        {
+          var goodId = goods[i]["id"];
+          var good = getApp().globalData.goods[goodId];
+
+          cartGoods.push(
+            {
+              id:goodId,
+              title:good.title,
+              image:good.image,
+              num: goods[i]["num"],
+              price:good.price,
+              selected: true
+            }
+          );
+        }
+
+        that.setData({
+          hasList: true,
+          carts:cartGoods
+        });
+        that.getTotalPrice();
+      },
+      fail(error) {
+        util.showModel('请求失败', error);
+        console.log('request fail', error);
+      }
     });
-    this.getTotalPrice();
   },
   /**
    * 当前商品选中事件
