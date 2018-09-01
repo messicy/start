@@ -1,203 +1,46 @@
 Page({
     data: {
-        category: [
-            {name:'果味',id:'guowei'},
-            {name:'蔬菜',id:'shucai'},
-            {name:'炒货',id:'chaohuo'},
-            {name:'点心',id:'dianxin'},
-            {name:'粗茶',id:'cucha'},
-            {name:'淡饭',id:'danfan'}
-        ],
-        detail: [{
-          "id": "guowei",
-          "banner": "/image/c1.png",
-          "cate": "果味",
-          "detail": [
-            {
-              "thumb": "/image/c2.png",
-              "name": "梨花带雨 3个"
-            },
-            {
-              "thumb": "/image/c3.png",
-              "name": "红枣 500g"
-            },
-            {
-              "thumb": "/image/c4.png",
-              "name": "奇异果 2个"
-            },
-            {
-              "thumb": "/image/c4.png",
-              "name": "奇异果 2个"
-            },
-            {
-              "thumb": "/image/c3.png",
-              "name": "红枣 500g"
-            },
-            {
-              "thumb": "/image/c2.png",
-              "name": "梨花带雨 3个"
-            }
-          ]
-        },
-        {
-          "id": "shucai",
-          "banner": "/image/c1.png",
-          "cate": "蔬菜",
-          "detail": [
-            {
-              "thumb": "/image/s4.png",
-              "name": "瓜子 3个"
-            },
-            {
-              "thumb": "/image/s5.png",
-              "name": "芹菜 500g"
-            },
-            {
-              "thumb": "/image/s6.png",
-              "name": "小米"
-            },
-            {
-              "thumb": "/image/s6.png",
-              "name": "小米"
-            },
-            {
-              "thumb": "/image/s5.png",
-              "name": "芹菜 500g"
-            },
-            {
-              "thumb": "/image/s4.png",
-              "name": "瓜子 4个"
-            }
-          ]
-        },
-        {
-          "id": "chaohuo",
-          "banner": "/image/c1.png",
-          "cate": "炒货",
-          "detail": [
-            {
-              "thumb": "/image/c2.png",
-              "name": "梨花带雨 3个"
-            },
-            {
-              "thumb": "/image/c3.png",
-              "name": "红枣 500g"
-            },
-            {
-              "thumb": "/image/c4.png",
-              "name": "奇异果 2个"
-            },
-            {
-              "thumb": "/image/c4.png",
-              "name": "奇异果 2个"
-            },
-            {
-              "thumb": "/image/c3.png",
-              "name": "红枣 500g"
-            },
-            {
-              "thumb": "/image/c2.png",
-              "name": "梨花带雨 3个"
-            }
-          ]
-        },
-        {
-          "id": "dianxin",
-          "banner": "/image/c1.png",
-          "cate": "点心",
-          "detail": [
-            {
-              "thumb": "/image/s4.png",
-              "name": "瓜子 3个"
-            },
-            {
-              "thumb": "/image/s5.png",
-              "name": "芹菜 500g"
-            },
-            {
-              "thumb": "/image/s6.png",
-              "name": "小米"
-            },
-            {
-              "thumb": "/image/s6.png",
-              "name": "小米"
-            },
-            {
-              "thumb": "/image/s5.png",
-              "name": "芹菜 500g"
-            },
-            {
-              "thumb": "/image/s4.png",
-              "name": "瓜子 4个"
-            }
-          ]
-        },
-        {
-          "id": "cucha",
-          "banner": "/image/c1.png",
-          "cate": "粗茶",
-          "detail": [
-            {
-              "thumb": "/image/c2.png",
-              "name": "梨花带雨 3个"
-            },
-            {
-              "thumb": "/image/c3.png",
-              "name": "红枣 500g"
-            },
-            {
-              "thumb": "/image/c4.png",
-              "name": "奇异果 2个"
-            },
-            {
-              "thumb": "/image/c4.png",
-              "name": "奇异果 2个"
-            },
-            {
-              "thumb": "/image/c3.png",
-              "name": "红枣 500g"
-            },
-            {
-              "thumb": "/image/c2.png",
-              "name": "梨花带雨 3个"
-            }
-          ]
-        },
-        {
-          "id": "danfan",
-          "banner": "/image/c1.png",
-          "cate": "淡饭",
-          "detail": [
-            {
-              "thumb": "/image/s4.png",
-              "name": "瓜子 3个"
-            },
-            {
-              "thumb": "/image/s5.png",
-              "name": "芹菜 500g"
-            },
-            {
-              "thumb": "/image/s6.png",
-              "name": "小米"
-            },
-            {
-              "thumb": "/image/s6.png",
-              "name": "小米"
-            },
-            {
-              "thumb": "/image/s5.png",
-              "name": "芹菜 500g"
-            },
-            {
-              "thumb": "/image/s4.png",
-              "name": "瓜子 4个"
-            }
-          ]
-        }],
+        category: null,
+
+        detail: null,
         curIndex: 0,
         isScroll: false,
-        toView: 'guowei'
+        toView: "guowei"
     },
+
+    onLoad: function (options) {
+      var allCategory = getApp().globalData.category;
+      var details = [];
+
+      for (var i = 0; i < allCategory.length; i++)
+      {
+        var detailGoods = [];
+        var goods = getApp().globalData.goods.filter(function (g) {
+          return g.category == allCategory[i].id;
+        });
+        for(var j = 0; j < goods.length; j++)
+        {
+          var good = {
+            "thumb": goods[j].image,
+            "name": goods[j].title
+          };
+          detailGoods.push(good);
+        }
+
+        var detail = {
+          "category": allCategory[i],
+          "detail": detailGoods
+        };
+
+        details.push(detail);
+      }
+
+      this.setData({
+        category: allCategory,
+        detail: details
+      })
+    },
+
     onReady(){
         var self = this;
         wx.request({

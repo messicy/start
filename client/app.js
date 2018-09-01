@@ -44,6 +44,26 @@ App({
   },
   globalData: {
     userInfo: null,
+
+    category:[
+      {
+        id: "guowei",
+        name: "果味",
+      },
+      {
+        id: "shucai",
+        name: "蔬菜",
+      },
+      {
+        id: "chaohuo",
+        name: "炒货",
+      },
+      {
+        id: "dianxin",
+        name: "点心",
+      },
+    ],
+
     goods: [{
       id: 0,
       image: '/image/goods1.png',
@@ -53,7 +73,7 @@ App({
       detail: '这里是梨花带雨详情。',
       parameter: '125g/个',
       service: '不支持退货',
-      category: 1,
+      category: "guowei",
       theme: 1,
       isnew: true
     },
@@ -66,7 +86,7 @@ App({
       detail: '这里是瓜子详情。',
       parameter: '125g/个',
       service: '不支持退货',
-      category: 2,
+      category: "shucai",
       theme: 2,
       isnew: true
     },
@@ -79,7 +99,7 @@ App({
       detail: '这里是芹菜详情。',
       parameter: '125g/个',
       service: '不支持退货',
-      category: 3,
+      category: "chaohuo",
       theme: 3,
       isnew: true
     },
@@ -92,7 +112,7 @@ App({
       detail: '这里是粟米详情。',
       parameter: '125g/个',
       service: '不支持退货',
-      category: 4,
+      category: "dianxin",
       theme: 1,
       isnew: true
       },
@@ -105,7 +125,7 @@ App({
         detail: '这里是粟米详情。',
         parameter: '125g/个',
         service: '不支持退货',
-        category: 4,
+        category: "dianxin",
         theme: 2,
         isnew: true
       },
@@ -118,7 +138,7 @@ App({
         detail: '这里是粟米详情。',
         parameter: '125g/个',
         service: '不支持退货',
-        category: 4,
+        category: "dianxin",
         theme: 3,
         isnew: false
       },
@@ -131,7 +151,7 @@ App({
         detail: '这里是粟米详情。',
         parameter: '125g/个',
         service: '不支持退货',
-        category: 4,
+        category: "dianxin",
         theme: 1,
         isnew: false
       }]
