@@ -54,7 +54,7 @@ App({
       parameter: '125g/个',
       service: '不支持退货',
       category: 1,
-      activity: 1,
+      theme: 1,
       isnew: true
     },
     {
@@ -67,7 +67,7 @@ App({
       parameter: '125g/个',
       service: '不支持退货',
       category: 2,
-      activity: 2,
+      theme: 2,
       isnew: true
     },
     {
@@ -80,7 +80,7 @@ App({
       parameter: '125g/个',
       service: '不支持退货',
       category: 3,
-      activity: 3,
+      theme: 3,
       isnew: true
     },
     {
@@ -93,7 +93,7 @@ App({
       parameter: '125g/个',
       service: '不支持退货',
       category: 4,
-      activity: 1,
+      theme: 1,
       isnew: true
       },
       {
@@ -106,7 +106,7 @@ App({
         parameter: '125g/个',
         service: '不支持退货',
         category: 4,
-        activity: 2,
+        theme: 2,
         isnew: true
       },
       {
@@ -119,7 +119,7 @@ App({
         parameter: '125g/个',
         service: '不支持退货',
         category: 4,
-        activity: 3,
+        theme: 3,
         isnew: false
       },
       {
@@ -132,7 +132,7 @@ App({
         parameter: '125g/个',
         service: '不支持退货',
         category: 4,
-        activity: 1,
+        theme: 1,
         isnew: false
       }]
     }

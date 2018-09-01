@@ -1,3 +1,7 @@
+var qcloud = require('../../vendor/wafer2-client-sdk/index')
+var config = require('../../config')
+var util = require('../../utils/util.js')
+
 Page({
   data: {
     imgUrls: [
@@ -9,6 +13,17 @@ Page({
     autoplay: false,
     interval: 3000,
     duration: 800,
-    goods: getApp().globalData.goods
-  }
+    goods: null
+  },
+
+  onLoad: function (options) {
+    var newgoods = getApp().globalData.goods.filter(function (good) {
+      return good.isnew;
+    });
+
+    this.setData({
+      goods: newgoods
+    })
+  },
+
 })
