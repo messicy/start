@@ -48,18 +48,22 @@ App({
     category:[
       {
         id: "guowei",
+        banner: "../../../image/b2.jpg",
         name: "果味",
       },
       {
         id: "shucai",
+        banner: "../../../image/b2.jpg",
         name: "蔬菜",
       },
       {
         id: "chaohuo",
+        banner: "../../../image/b2.jpg",
         name: "炒货",
       },
       {
         id: "dianxin",
+        banner: "../../../image/b2.jpg",
         name: "点心",
       },
     ],

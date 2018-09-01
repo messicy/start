@@ -16,7 +16,6 @@ Page({
   },
 
   onLoad: function (options) {
-    console.log("asdfawe " + options.id)
     var newgoods = getApp().globalData.goods[options.id]
     this.setData({
       goods: newgoods

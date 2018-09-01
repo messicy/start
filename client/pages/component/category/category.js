@@ -1,7 +1,6 @@
 Page({
     data: {
         category: null,
-
         detail: null,
         curIndex: 0,
         isScroll: false,
