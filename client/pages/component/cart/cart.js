@@ -57,7 +57,12 @@ Page({
    */
   selectList(e) {
     const index = e.currentTarget.dataset.index;
+    console.log("fwefwe " + index);
+
     let carts = this.data.carts;
+    
+    console.log("fwefwe22 " + carts[index].id);
+    
     const selected = carts[index].selected;
     carts[index].selected = !selected;
     this.setData({
@@ -72,6 +77,7 @@ Page({
   deleteList(e) {
     const index = e.currentTarget.dataset.index;
     let carts = this.data.carts;
+    var goodId = carts[index].id;
     carts.splice(index,1);
     this.setData({
       carts: carts
@@ -83,6 +89,18 @@ Page({
     }else{
       this.getTotalPrice();
     }
+
+    qcloud.request({
+      url: `${config.service.host}/weapp/cart/del?id=${goodId}`,
+      login: false,
+      success(result) {
+        console.log('response data', JSON.stringify(result.data));
+      },
+      fail(error) {
+        util.showModel('请求失败', error);
+        console.log('request fail', error);
+      }
+    });
   },
 
   /**
@@ -109,6 +127,7 @@ Page({
   addCount(e) {
     const index = e.currentTarget.dataset.index;
     let carts = this.data.carts;
+    var goodId = carts[index].id;
     let num = carts[index].num;
     num = num + 1;
     carts[index].num = num;
@@ -116,6 +135,18 @@ Page({
       carts: carts
     });
     this.getTotalPrice();
+
+    qcloud.request({
+      url: `${config.service.host}/weapp/cart/add?id=${goodId}&num=1`,
+      login: false,
+      success(result) {
+        console.log('response data', JSON.stringify(result.data));
+      },
+      fail(error) {
+        util.showModel('请求失败', error);
+        console.log('request fail', error);
+      }
+    });
   },
 
   /**
@@ -125,6 +156,7 @@ Page({
     const index = e.currentTarget.dataset.index;
     const obj = e.currentTarget.dataset.obj;
     let carts = this.data.carts;
+    var goodId = carts[index].id;
     let num = carts[index].num;
     if(num <= 1){
       return false;
@@ -135,6 +167,18 @@ Page({
       carts: carts
     });
     this.getTotalPrice();
+
+    qcloud.request({
+      url: `${config.service.host}/weapp/cart/reduce?id=${goodId}`,
+      login: false,
+      success(result) {
+        console.log('response data', JSON.stringify(result.data));
+      },
+      fail(error) {
+        util.showModel('请求失败', error);
+        console.log('request fail', error);
+      }
+    });
   },
 
   /**

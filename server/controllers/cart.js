@@ -29,8 +29,8 @@ module.exports = {
     var id = ctx.request.query["id"];
 
     //search
-    await mysql("cart").where({ id }).first()
-    var res = await mysql("cart").update({ num: Number(res["num"]) - 1 }).where({ id })
+    var res = await mysql("cart").where({ id }).first()
+    res = await mysql("cart").update({ num: Number(res["num"]) - 1 }).where({ id })
 
     ctx.state.data = {
       msg: res
