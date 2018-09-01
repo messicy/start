@@ -52,6 +52,22 @@ Page({
       }, 200)
     }, 300)
 
+    qcloud.request({
+      url: `${config.service.host}/weapp/cart/add?id=${this.data.goods.id}&num=${num}`,
+      login: false,
+      success(result) {
+        // util.showSuccess('请求成功完成')
+   //     that.setData({
+   //       requestResult: JSON.stringify(result.data)
+   //     })
+        console.log('response data', JSON.stringify(result.data));
+
+      },
+      fail(error) {
+        util.showModel('请求失败', error);
+        console.log('request fail', error);
+      }
+    })
   },
 
   faqiPindan() {

@@ -34,5 +34,6 @@ router.post('/message', controllers.message.post)
 
 router.get('/demo', controllers.demo)
 router.get('/pintuan', controllers.pintuan)
+router.get('/cart/add', controllers.cart.add)
 
 module.exports = router
