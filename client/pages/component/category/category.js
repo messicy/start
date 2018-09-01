@@ -22,7 +22,8 @@ Page({
         {
           var good = {
             "thumb": goods[j].image,
-            "name": goods[j].title
+            "name": goods[j].title,
+            "id": goods[j].id
           };
           detailGoods.push(good);
         }
@@ -41,18 +42,18 @@ Page({
       })
     },
 
-    onReady(){
-        var self = this;
-        wx.request({
-            // url:'data/cate-detail.txt',
-            success(res){
-                self.setData({
-                    detail : res.data
-                })
-            }
-        });
-        
-    },
+    // onReady(){
+    //     var self = this;
+    //     wx.request({
+    //         // url:'data/cate-detail.txt',
+    //         success(res){
+    //             self.setData({
+    //                 detail : res.data
+    //             })
+    //         }
+    //     });
+    // },
+
     switchTab(e){
       const self = this;
       this.setData({
