@@ -12,10 +12,11 @@ Page({
   },
 
   onLoad: function (options) {
-    console.log("asdfawe " + options.id)
-    var newgoods = getApp().globalData.goods[options.id]
+    var newgoods = getApp().globalData.carts.filter(function (g) {
+      return g.selected == true;
+    });
     this.setData({
-      good: newgoods
+      orders: newgoods
     })
   },
 
@@ -51,15 +52,15 @@ Page({
   },
 
   toPay() {
-    // wx.showModal({
-    //   title: '提示',
-    //   content: '本系统只做演示，支付系统已屏蔽',
-    //   text:'center',
-    //   complete() {
-    //     wx.switchTab({
-    //       url: '/page/component/user/user'
-    //     })
-    //   }
-    // })
+    wx.showModal({
+      title: '提示',
+      content: '本系统只做演示，支付系统已屏蔽',
+      text:'center',
+      complete() {
+        wx.switchTab({
+          url: '../user/user'
+        })
+      }
+    })
   }
 })

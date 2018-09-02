@@ -44,7 +44,7 @@ App({
   },
   globalData: {
     userInfo: null,
-
+    carts:[],
     category:[
       {
         id: "guowei",

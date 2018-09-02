@@ -14,7 +14,7 @@ Page({
     }
   },
 
-  onShow() {
+  onLoad() {
     var that = this;
     qcloud.request({
       url: `${config.service.host}/weapp/cart/load`,
@@ -57,11 +57,7 @@ Page({
    */
   selectList(e) {
     const index = e.currentTarget.dataset.index;
-    console.log("fwefwe " + index);
-
     let carts = this.data.carts;
-    
-    console.log("fwefwe22 " + carts[index].id);
     
     const selected = carts[index].selected;
     carts[index].selected = !selected;
@@ -196,6 +192,10 @@ Page({
       carts: carts,
       totalPrice: total.toFixed(2)
     });
-  }
+  },
 
+  updateGlobalCart() {
+    console.log("go to order");
+    getApp().globalData.carts = this.data.carts;
+  }
 })
