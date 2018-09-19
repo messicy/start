@@ -8,6 +8,7 @@ const config = require('./config')
 // 使用响应处理中间件
 app.use(response)
 
+
 // 解析请求体
 app.use(bodyParser())
 
